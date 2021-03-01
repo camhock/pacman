@@ -3,24 +3,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     info.changeScoreBy(10)
 })
 let dot: Sprite = null
-tiles.setTilemap(tiles.createTilemap(hex`1000100001010101010101010101010101010101010002020202020202020202020202010102010101000101020102010101020101020100000001020201020200010201010201000000010201010002020102010102020201010102020101010202020101010102020202020202020202010101010101020101010202010101020101010101010201020202020202010201010101010102010101010101010102010101010202020202020202020202020202010102010201010101020101010201020101020102020201020201020202010201010201010102010201010201010102010102020202020102020102020202020101010101010101010101010101010101`, img`
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-    . . . . . . . . . . . . . . . 2 
-    . . . . . . . . . . . . . . . 2 
-    . . . . . . . . . . . . . . . 2 
-    . . . . . . . . . . . . . . . 2 
-    . . . . . . . . . . . . . . . 2 
-    . . . . . . . . . . . . . 2 2 2 
-    . . . . . . . . . . . . . 2 2 2 
-    . . . . . . . . . . . . . 2 2 2 
-    . . . . . . . . . . . . . 2 2 2 
-    . . . . . . . . . . . . . . . 2 
-    . . . . . . . . . . . . . . . 2 
-    . . . . . . . . . . . . . . . 2 
-    . . . . . . . . . . . . . . . 2 
-    . . . . . . . . . . . . . . . 2 
-    . . . . . . . . . . . . . . . 2 
-    `, [myTiles.transparency16,sprites.dungeon.floorLight0,myTiles.tile1], TileScale.Sixteen))
+tiles.setTilemap(tilemap`level1`)
 let pac = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -42,7 +25,7 @@ let pac = sprites.create(img`
 controller.moveSprite(pac)
 scene.cameraFollowSprite(pac)
 tiles.placeOnTile(pac, tiles.getTileLocation(7, 10))
-for (let value of tiles.getTilesByType(myTiles.tile1)) {
+for (let value of tiles.getTilesByType(assets.tile`tile1`)) {
     dot = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
